@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = () => ({
-  close: require('./close')()
+module.exports = (models) => ({
+  close: require('./close')(models)
 });

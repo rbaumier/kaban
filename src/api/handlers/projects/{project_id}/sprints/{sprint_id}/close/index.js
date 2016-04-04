@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = () => ({
-  $post: require('./$post.close')(),
+module.exports = (models) => ({
+  $post: require('./$post.close')(models),
 });
