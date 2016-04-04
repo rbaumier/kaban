@@ -1,12 +1,12 @@
 'use strict';
 
-module.exports = (domains, codes) => {
+module.exports = (models) => {
   return function $post(request, reply) {
-    reply('YOLO');
-    // domains.Users.create(request.payload)
-    //   .then(() => {
-    //     reply().code(codes.created);
-    //   })
-    //   .otherwise(err => reply(err).code(err.code || codes.internalError));
+    models.project
+      .create(request.payload)
+      .then(project => project ? reply(project) : reply(Boom.notFound()))
+      .catch(err => {
+        reply(Boom.wrap(err))
+      });
   }
 };
