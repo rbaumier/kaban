@@ -5,7 +5,8 @@ const Swaggerize = require('swaggerize-hapi');
 
 module.exports = function (packageJson, PORT) {
   const server = new Hapi.Server();
-  const handlers = require('./handlers')();
+  const models = require('./models');
+  const handlers = require('./handlers')(models);
 
   server.connection({
     port: PORT
