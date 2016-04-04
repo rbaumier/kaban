@@ -6,13 +6,13 @@ var sprint = {
     autoIncrement: true,
     primaryKey: true
   },
-  nom: {
+  name: {
     type: Sequelize.STRING
   },
-  date_debut : {
+  startDate : {
     type: Sequelize.INTEGER
   },
-  date_fin : {
+  endDate : {
     type: Sequelize.INTEGER
   }
 }
