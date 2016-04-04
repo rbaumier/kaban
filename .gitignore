@@ -1,0 +1,35 @@
+# Files
+.DS_Store
+.localized
+Thumb.db
+npm-debug.log
+bootstrap/compiled.php
+composer.phar
+composer.lock
+.env.*.php
+.env.php
+build.xml
+dploy.yml
+*.box
+.git
+.svn
+CONTRIBUTING.md/index.html
+.hg
+.psd
+
+# Folders
+node_modules/
+__MACOSX
+.idea/
+gen/
+out/
+project.properties
+.project
+.classpath
+.sublime-project
+.sublime-workspace
+local.properties
+ftpsync.settings
+.vagrant/
+packer_cache/
+CVS

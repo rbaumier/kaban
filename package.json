@@ -1,0 +1,36 @@
+{
+  "name": "Kaban",
+  "title": "Kaban",
+  "version": "0.0.1",
+  "tos": "ToS",
+  "description": "my awesome kanan",
+  "license": {
+    "name": "iAdvize",
+    "url": "http://iadvize.com"
+  },
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha -r bootstrap.test.js 'src/**/*.test.js'",
+    "test-watch": "mocha -w -G -r bootstrap.test.js 'src/**/*.test.js'",
+    "start": "node server.js"
+  },
+  "author": {},
+  "engines": {
+    "node": "4"
+  },
+  "dependencies": {
+    "async": "1.x.x",
+    "common-env": "5.x.x",
+    "deepmerge": "0.2.x",
+    "hapi": "11.x.x",
+    "lodash": "3.x.x",
+    "swaggerize-hapi": "1.x.x",
+    "when": "3.x.x",
+    "winston": "2.x.x"
+  },
+  "devDependencies": {
+    "chai": "3.x.x",
+    "check-build": "*",
+    "mocha": "2.x.x"
+  }
+}

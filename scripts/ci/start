@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.25.0/install.sh | bash
+source ~/.nvm/nvm.sh
+
+cd $WORKSPACE; # exposed by jenkins
+
+# install/use the right nodejs version
+nvm install
+nvm use
+
+# install dependencies
+npm install
+
+# Any subsequent commands which fail will cause the shell script to exit immediately
+set -e
+npm run ci
