@@ -26,7 +26,8 @@
     "lodash": "3.x.x",
     "swaggerize-hapi": "1.x.x",
     "when": "3.x.x",
-    "winston": "2.x.x"
+    "winston": "2.x.x",
+    "sequelize": "~3.21.0"
   },
   "devDependencies": {
     "chai": "3.x.x",
