@@ -6,15 +6,21 @@ var sprint = {
     autoIncrement: true,
     primaryKey: true
   },
-  nom: {
+  name: {
     type: Sequelize.STRING
   },
-  date_debut : {
+  startDate: {
     type: Sequelize.INTEGER
   },
-  date_fin : {
+  endDate: {
     type: Sequelize.INTEGER
-  }
+  },
+  status: {
+    type: Sequelize.ENUM('open', 'closed'),
+    set(val) {
+      this.setDataValue('status', val || 'open');
+    }
+  },
 }
 
 module.exports = sprint;

@@ -74,6 +74,25 @@ module.exports = function(packageJson) {
           }]
         })
       },
+
+      '/projects/{project_id}/sprints/{sprint_id}/close': {
+        post: def({
+          summary: 'create a new sprint',
+          parameters: [{
+            name: 'project_id',
+            'in': 'path',
+            description: 'project id',
+            required: true,
+            type: 'integer'
+          }, {
+            name: 'sprint_id',
+            'in': 'path',
+            description: 'sprint id',
+            required: true,
+            type: 'integer'
+          }]
+        })
+      },
     }
   };
 };

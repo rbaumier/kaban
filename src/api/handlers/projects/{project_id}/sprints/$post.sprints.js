@@ -1,10 +1,12 @@
 'use strict';
 
-module.exports = (domains, codes) => {
+module.exports = (models) => {
   return function $post(request, reply) {
-    reply('TODO');
-    // domains.Quotes.create(request.payload.content, request.user.id)
-    //   .then(() => reply().code(codes.created))
-    //   .otherwise(err => reply(err).code(err.code || codes.internalError));
+    models.sprint
+      .create(request.payload)
+      .then(sprint => sprint ? reply(sprint) : reply(Boom.notFound()))
+      .catch(err => {
+        reply(Boom.wrap(err))
+      });
   }
 };

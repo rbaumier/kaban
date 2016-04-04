@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = (models) => ({
-  projects: require('./projects')(models)
+  close: require('./close')(models)
 });

@@ -6,7 +6,7 @@ var project = {
     autoIncrement: true,
     primaryKey: true
   },
-  nom: {
+  name: {
     type: Sequelize.STRING
   }
 }
