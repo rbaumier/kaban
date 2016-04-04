@@ -49,6 +49,9 @@ module.exports = function(packageJson) {
               $ref: '#/definitions/project'
             }
           }]
+        }),
+        get: def({
+          summary:'view every project'
         })
       }
     }
