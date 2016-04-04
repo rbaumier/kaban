@@ -9,12 +9,18 @@ var sprint = {
   name: {
     type: Sequelize.STRING
   },
-  startDate : {
+  startDate: {
     type: Sequelize.INTEGER
   },
-  endDate : {
+  endDate: {
     type: Sequelize.INTEGER
-  }
+  },
+  status: {
+    type: Sequelize.ENUM('open', 'closed'),
+    set(val) {
+      this.setDataValue('status', val || 'open');
+    }
+  },
 }
 
 module.exports = sprint;

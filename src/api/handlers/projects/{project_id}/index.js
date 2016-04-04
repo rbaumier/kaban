@@ -1,5 +1,5 @@
-  'use strict';
+'use strict';
 
-  module.exports = (domains, codes) => ({
-    sprints: require('./sprints')(domains, codes),
-  });
+module.exports = (domains, codes) => ({
+  sprints: require('./sprints')(domains, codes),
+});
