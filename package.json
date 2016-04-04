@@ -24,10 +24,11 @@
     "deepmerge": "0.2.x",
     "hapi": "11.x.x",
     "lodash": "3.x.x",
+    "pg": "^4.5.2",
+    "sequelize": "^3.21.0",
     "swaggerize-hapi": "1.x.x",
     "when": "3.x.x",
-    "winston": "2.x.x",
-    "sequelize": "~3.21.0"
+    "winston": "2.x.x"
   },
   "devDependencies": {
     "chai": "3.x.x",

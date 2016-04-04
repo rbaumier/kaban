@@ -53,7 +53,27 @@ module.exports = function(packageJson) {
         get: def({
           summary:'view every project'
         })
-      }
+      },
+
+      '/projects/{project_id}/sprints': {
+        post: def({
+          summary: 'create a new sprint',
+          parameters: [{
+            name: 'project_id',
+            'in': 'path',
+            description: 'project id',
+            required: true,
+            type: 'integer'
+          }, {
+            'in': 'body',
+            name: 'body',
+            required: true,
+            schema: {
+              $ref: '#/definitions/sprint'
+            }
+          }]
+        })
+      },
     }
   };
 };
