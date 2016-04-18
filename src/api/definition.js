@@ -55,6 +55,19 @@ module.exports = function(packageJson) {
         })
       },
 
+      '/projects/{project_id}': {
+        get: def({
+          summary: 'find a project',
+          parameters: [{
+            name: 'project_id',
+            'in': 'path',
+            description: 'project id',
+            required: true,
+            type: 'integer'
+          }]
+        })
+      },
+
       '/projects/{project_id}/sprints': {
         post: def({
           summary: 'create a new sprint',
@@ -84,6 +97,26 @@ module.exports = function(packageJson) {
           }]
         })
       },
+
+      '/projects/{project_id}/sprints/{sprint_id}': {
+        get: def({
+          summary: 'find a sprint',
+          parameters: [{
+            name: 'project_id',
+            'in': 'path',
+            description: 'project id',
+            required: true,
+            type: 'integer'
+          }, {
+            name: 'sprint_id',
+            'in': 'path',
+            description: 'sprint id',
+            required: true,
+            type: 'integer'
+          }]
+        })
+      },
+
 
       '/projects/{project_id}/sprints/{sprint_id}/close': {
         post: def({
@@ -138,6 +171,31 @@ module.exports = function(packageJson) {
             type: 'integer'
           }, {
             name: 'sprint_id',
+            'in': 'path',
+            description: 'sprint id',
+            required: true,
+            type: 'integer'
+          }]
+        })
+      },
+
+      '/projects/{project_id}/sprints/{sprint_id}/stories/{story_id}': {
+        get: def({
+          summary: 'find a story',
+          parameters: [{
+            name: 'project_id',
+            'in': 'path',
+            description: 'project id',
+            required: true,
+            type: 'integer'
+          }, {
+            name: 'sprint_id',
+            'in': 'path',
+            description: 'sprint id',
+            required: true,
+            type: 'integer'
+          }, {
+            name: 'story_id',
             'in': 'path',
             description: 'sprint id',
             required: true,
