@@ -56,29 +56,5 @@
   <script type="text/javascript" src="ProjectController.js"></script>
   <script type="text/javascript" src="SprintController.js"></script>
   <script type="text/javascript" src="StoriesController.js"></script>
-  	<script src="js/modernizr.custom.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/stepsForm.js"></script>
-        <script>
-      var theForm = document.getElementById( 'theForm' );
-
-      new stepsForm( theForm, {
-        onSubmit : function( form ) {
-          // hide form
-          classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
-
-          /*
-          form.submit()
-          or
-          AJAX request (maybe show loading indicator while we don't have an answer..)
-          */
-
-          // let's just simulate something...
-          var messageEl = theForm.querySelector( '.final-message' );
-          messageEl.innerHTML = 'Bravo, c\' est un superbe nom';
-          classie.addClass( messageEl, 'show' );
-        }
-      } );
-    </script>
 </body>
 </html>
