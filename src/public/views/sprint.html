@@ -1,1 +1,33 @@
-<h1>SPRINT</h1>
+<div id="sprints_wrapper" ng-controller="SprintController">
+  <div class="container-fluid">
+    <div class="col-sm-6 col-md-3">
+      <div class="sprint_wrapper">
+        <div class="sprint_title">
+          Add a new Sprint
+        </div>
+      </div>
+    </div>
+    <div ng-repeat="sprint in sprints">
+      <div class="col-sm-6 col-md-3">
+        <a href="#/project/{{ project }}/sprints/{{ sprint.id }}/stories">
+          <div class="sprint_wrapper">
+          	<ul class="list-group">
+	            <li class="list-group-item sprint_id">
+	              Sprint N° : {{ sprint.id }}
+	            </li>
+	            <li class="list-group-item sprint_name">
+	              Sprint name : {{ sprint.id }}
+	            </li>
+	            <li class="list-group-item sprint_created_at">
+	              Created at : {{ sprint.id }}
+	            </li>
+	            <li class="list-group-item sprint_date_created">
+	              Created on : {{ sprint.createdAt | date:"MM/dd/yyyy" }}
+	            </li>
+            </ul>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,5 +6,7 @@ app.controller('SprintController', function($scope, $http, $stateParams) {
   }).then(function(response) {
     console.log(response);
     $scope.loadingProjects = false;
+    $scope.project = $stateParams.projectId;
+    $scope.sprints = response.data;
   })
 })
