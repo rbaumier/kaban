@@ -1,1 +1,33 @@
-<h1>STORIES</h1>
+<div id="stories_wrapper" ng-controller="StorieController">
+  <div class="container-fluid">
+    <div class="col-sm-6 col-md-3">
+      <div class="storie_wrapper">
+        <div class="storie_title">
+          Add a new storie
+        </div>
+      </div>
+    </div>
+    <div ng-repeat="storie in stories">
+      <div class="col-sm-6 col-md-3">
+        <a href="#/project/{{ project }}/stories/{{ storie.id }}/stories">
+          <div class="storie_wrapper">
+          	<ul class="list-group">
+	            <li class="list-group-item storie_id">
+	              storie N° : {{ storie.id }}
+	            </li>
+	            <li class="list-group-item storie_name">
+	              storie name : {{ storie.id }}
+	            </li>
+	            <li class="list-group-item storie_created_at">
+	              Created at : {{ storie.id }}
+	            </li>
+	            <li class="list-group-item storie_date_created">
+	              Created on : {{ storie.createdAt | date:"MM/dd/yyyy" }}
+	            </li>
+            </ul>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

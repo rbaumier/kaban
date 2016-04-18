@@ -24,7 +24,7 @@ a:hover  {
 
 #projects_wrapper {
 	position: relative;
-	top: -295px;
+	top: -130px;
 	transition: all .2s;
 }
 #projects_wrapper.toggle {
