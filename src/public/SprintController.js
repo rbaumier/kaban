@@ -1,6 +1,6 @@
 app.controller('SprintController', function($scope, $http, $stateParams) {
 
-  $scope.getSprints = function() {
+  function refresh() {
     $http({
       url: "http://localhost:8080/projects/" + $stateParams.projectId + "/sprints",
       method: "GET"
@@ -10,18 +10,17 @@ app.controller('SprintController', function($scope, $http, $stateParams) {
     })
   }
 
-  $scope.createSprint = function(name) {
+  $scope.create = function(projectId, sprint) {
     $http({
       url: "http://localhost:8080/projects/" + $stateParams.projectId + "/sprints",
       method: "POST",
       data: {
-        "name": name
+        "name": sprint.name
       }
     }).then(function(response) {
-      $scope.getSprints();
+      refresh();
     })
   }
 
-
-  $scope.getSprints();
+  refresh();
 })

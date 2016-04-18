@@ -1,28 +1,29 @@
 app.controller('StoriesController', function($scope, $http, $stateParams) {
 
   var url = "http://localhost:8080/projects/" + $stateParams.projectId + "/sprints/" + $stateParams.sprintId + "/stories"
-  $scope.getStories = function() {
+
+  function refresh() {
     $http({
       url: url,
       method: "GET"
     }).then(function(response) {
       $scope.stories = response.data;
       $scope.loadingProjects = false;
-    })
+    });
   }
 
-  $scope.createStory = function(name, valeur_metier, effort_technique, zone) {
+  $scope.create = function(story) {
     $http({
       url: url,
       method: "POST",
       data: {
-        "name": name,
-        "valeur_metier": valeur_metier,
-        "effort_technique": effort_technique,
-        "zone", zone
+        "name": story.name,
+        "valeur_metier": story.valeur_metier,
+        "effort_technique": story.effort_technique,
+        "zone", story.zone
       }
     }).then(function(response) {
-      $scope.getStories();
-    })
+      refresh();
+    });
   }
 })
