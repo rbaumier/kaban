@@ -103,6 +103,48 @@ module.exports = function(packageJson) {
           }]
         })
       },
+
+      '/projects/{project_id}/sprints/{sprint_id}/stories': {
+        post: def({
+          summary: 'create a new story',
+          parameters: [{
+            name: 'project_id',
+            'in': 'path',
+            description: 'project id',
+            required: true,
+            type: 'integer'
+          }, {
+            name: 'sprint_id',
+            'in': 'path',
+            description: 'sprint id',
+            required: true,
+            type: 'integer'
+          }, {
+            'in': 'body',
+            name: 'body',
+            required: true,
+            schema: {
+              $ref: '#/definitions/story'
+            }
+          }]
+        }),
+        get: def({
+          summary: 'find all stories of a sprint',
+          parameters: [{
+            name: 'project_id',
+            'in': 'path',
+            description: 'project id',
+            required: true,
+            type: 'integer'
+          }, {
+            name: 'sprint_id',
+            'in': 'path',
+            description: 'sprint id',
+            required: true,
+            type: 'integer'
+          }]
+        })
+      },
     }
   };
 };

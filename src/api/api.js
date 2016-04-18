@@ -7,8 +7,8 @@ module.exports = function(packageJson, PORT) {
   const server = new Hapi.Server();
   const models = require('./models');
   const handlers = require('./handlers')(models);
-  var Path = require('path');
-  var Inert = require('inert');
+  const Path = require('path');
+  const Inert = require('inert');
 
   server.connection({
     port: PORT
