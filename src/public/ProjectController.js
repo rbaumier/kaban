@@ -2,7 +2,7 @@ app.controller('ProjectController', function($scope, $http) {
 
   $scope.loadingProjects = true;
 
-  $scope.getProjects = function() {
+  function refresh() {
     $http({
       url: "http://localhost:8080/projects",
       method: "GET"
@@ -13,17 +13,17 @@ app.controller('ProjectController', function($scope, $http) {
     })
   }
 
-  $scope.createProject = function(name) {
+  $scope.create = function(project) {
     $http({
       url: "http://localhost:8080/projects",
       method: "POST",
       data: {
-        "name": name
+        "name": project.name
       }
     }).then(function(response) {
-      $scope.getProjects();
-    })
+      refresh();
+    });
   }
 
-  $scope.getProjects();
+  refresh();
 })
