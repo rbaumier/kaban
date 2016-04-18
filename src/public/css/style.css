@@ -24,6 +24,7 @@ html, body {
 	border-radius: 5px;
 	color: #fff;
 	height: 100px;
+	margin-bottom: 20px;
 }
 .project_title {
 	font-size: 2em;
