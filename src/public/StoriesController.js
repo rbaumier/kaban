@@ -7,5 +7,8 @@ app.controller('StoriesController', function($scope, $http, $stateParams) {
   }).then(function(response) {
     console.log(response);
     $scope.loadingProjects = false;
+    $scope.project = $stateParams.projectId;
+    $scope.sprints = $stateParams.sprintId;
+    $scope.stories = response.data;
   })
 })
