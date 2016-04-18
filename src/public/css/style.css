@@ -1,0 +1,26 @@
+html, body {
+	font-family: Lato, sans-serif;
+}
+
+.project_wrapper {
+	position: relative;
+	background-color: #3A568D;
+	padding: 20px;
+	border-radius: 5px;
+	color: #fff;
+	height: 100px;
+}
+.project_title {
+	font-size: 2em;
+	text-transform: uppercase;
+}
+.project_date_created {
+	font-weight: 300;
+	font-size: .8em;
+	color: #99ADD6;
+	position: absolute;
+	left: 0;
+	bottom: 0px;
+	padding-left: 20px;
+	padding-bottom: 10px;
+}
