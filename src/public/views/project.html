@@ -1,5 +1,15 @@
 <div id="projects_wrapper" ng-controller="ProjectController">
   <div class="container-fluid">
+    <div class="col-sm-6 col-md-3">
+      <div class="project_wrapper">
+        <div class="project_title">
+          Add a new project
+        </div>
+      </div>
+      <div class="project_date_created">
+        
+      </div>     
+    </div>
     <div ng-repeat="project in projects">
       <div class="col-sm-6 col-md-3">
         <div class="project_wrapper">
@@ -7,7 +17,7 @@
             {{ project.name }}
           </div>
           <div class="project_date_created">
-            Created on : {{ project.createdAt }}
+            Created on : {{ project.createdAt | date:"MM/dd/yyyy"x }}
           </div>
         </div>        
       </div>
