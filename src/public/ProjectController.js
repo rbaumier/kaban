@@ -2,7 +2,21 @@ app.controller('ProjectController', function($scope, $http) {
 
   $scope.loadingProjects = true;
 
-  $scope.getProjects();
+  $scope.showForm = function() {
+    console.log('test');
+    $scope.toggle = true;
+  }
+
+  $scope.getProjects = function() {
+    $http({
+      url: "http://localhost:8080/projects",
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+      $scope.loadingProjects = false;
+      $scope.projects = response.data;
+    })
+  }
 
   $scope.createProject = function(name) {
     $http({
@@ -16,14 +30,5 @@ app.controller('ProjectController', function($scope, $http) {
     })
   }
 
-  $scope.getProjects = function() {
-    $http({
-      url: "http://localhost:8080/projects",
-      method: "GET"
-    }).then(function(response) {
-      console.log(response);
-      $scope.loadingProjects = false;
-      $scope.projects = response.data;
-    })
-  }
+  $scope.getProjects();
 })

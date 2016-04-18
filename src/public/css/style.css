@@ -22,6 +22,17 @@ a:hover  {
 }
 /******** END Reset bootstrap *************/
 
+#projects_wrapper {
+	position: relative;
+	top: -295px;
+	transition: all .2s;
+}
+#projects_wrapper.toggle {
+	top: 0px;
+}
+div[ui-view] {
+	overflow: hidden;
+}
 .project_wrapper {
 	display: block;
 	position: relative;
