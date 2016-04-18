@@ -8,12 +8,10 @@ module.exports = {
       "type": "string"
     },
     "startDate": {
-      type: "string",
-      "format": "date-time"
+      type: "integer"
     },
     "endDate": {
-      type: "string",
-      "format": "date-time"
+      type: "integer"
     }
   },
   "required": ["name", "startDate", "endDate"]

@@ -51,7 +51,7 @@ module.exports = function(packageJson) {
           }]
         }),
         get: def({
-          summary:'view every project'
+          summary: 'view every project'
         })
       },
 
@@ -71,6 +71,16 @@ module.exports = function(packageJson) {
             schema: {
               $ref: '#/definitions/sprint'
             }
+          }]
+        }),
+        get: def({
+          summary: 'find all sprints',
+          parameters: [{
+            name: 'project_id',
+            'in': 'path',
+            description: 'project id',
+            required: true,
+            type: 'integer'
           }]
         })
       },
