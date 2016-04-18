@@ -1,10 +1,30 @@
 <div id="stories_wrapper" ng-controller="StorieController">
   <div class="container-fluid">
     <div class="col-sm-6 col-md-3">
-      <div class="storie_wrapper">
-        <div class="storie_title">
-          Add a new storie
-        </div>
+      <div>
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+              <input class="form-control" placeholder="Name" ng-model="sprint.name">
+            </div>
+            <label for="inputName" class="col-sm-2 control-label">valeur métier</label>
+            <div class="col-sm-10">
+              <input class="form-control" placeholder="valeur metier" ng-model="sprint.valeur_metier">
+            </div>
+            <label for="inputName" class="col-sm-2 control-label">effort technique</label>
+            <div class="col-sm-10">
+              <input class="form-control" placeholder="effort technique" ng-model="sprint.effort_technique">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="error-create">{{errorCreate}}</div>
+              <button class="btn btn-primary" ng-click="create(sprint)">Create</button>
+              <button class="btn btn-default" ng-click="createFormHidden = true">Cancel</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
     <div ng-repeat="storie in stories">

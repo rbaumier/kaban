@@ -23,7 +23,7 @@ app.controller('StoriesController', function($scope, $http, $stateParams) {
         "name": story.name,
         "valeur_metier": story.valeur_metier,
         "effort_technique": story.effort_technique,
-        "zone", story.zone
+        "zone": 'backlog'
       }
     }).then(function(response) {
       refresh();
