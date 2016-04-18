@@ -29,25 +29,31 @@
     </div>
     <div ng-repeat="storie in stories">
       <div class="col-sm-6 col-md-3">
-        <a href="#/project/{{ project }}/stories/{{ storie.id }}/stories">
-          <div class="storie_wrapper">
+<!--         <a href="#/project/{{ project }}/stories/{{ storie.id }}/stories">
+ -->          <div class="storie_wrapper">
           	<ul class="list-group">
 	            <li class="list-group-item storie_id">
 	              storie N° : {{ storie.id }}
 	            </li>
 	            <li class="list-group-item storie_name">
-	              storie name : {{ storie.id }}
+	              storie name : {{ storie.name }}
 	            </li>
 	            <li class="list-group-item storie_created_at">
-	              Created at : {{ storie.id }}
+	              Effort technique : {{ storie.effort_technique }}
+	            </li>
+	            <li class="list-group-item storie_name">
+	              Valeur metier : {{ storie.valeur_metier }}
+	            </li>
+	            <li class="list-group-item storie_name">
+	              zone : {{ storie.zone }}
 	            </li>
 	            <li class="list-group-item storie_date_created">
 	              Created on : {{ storie.createdAt | date:"MM/dd/yyyy" }}
 	            </li>
             </ul>
           </div>
-        </a>
-      </div>
+<!--         </a>
+ -->      </div>
     </div>
   </div>
 </div>
