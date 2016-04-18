@@ -10,9 +10,9 @@ app.controller('SprintController', function($scope, $http, $stateParams) {
     })
   }
 
-  $scope.createSprint = function(projectId, name) {
+  $scope.createSprint = function(name) {
     $http({
-      url: "http://localhost:8080/projects/" + projectId + "/sprints",
+      url: "http://localhost:8080/projects/" + $stateParams.projectId + "/sprints",
       method: "POST",
       data: {
         "name": name
