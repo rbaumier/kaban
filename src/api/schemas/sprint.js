@@ -6,12 +6,6 @@ module.exports = {
   "properties": {
     "name": {
       "type": "string"
-    },
-    "startDate": {
-      type: "integer"
-    },
-    "endDate": {
-      type: "integer"
     }
   },
   "required": ["name", "startDate", "endDate"]
