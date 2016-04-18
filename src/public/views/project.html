@@ -1,13 +1,13 @@
-<div id="projects_wrapper">
+<div id="projects_wrapper" ng-controller="ProjectController">
   <div class="container-fluid">
-    <div class="row">
+    <div ng-repeat="project in projects">
       <div class="col-sm-6 col-md-3">
         <div class="project_wrapper">
           <div class="project_title">
-            My first project
+            {{ project.name }}
           </div>
           <div class="project_date_created">
-            Created on : 12/12/2016
+            Created on : {{ project.createdAt }}
           </div>
         </div>        
       </div>

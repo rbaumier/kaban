@@ -19,6 +19,10 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
       templateUrl: "views/project.html",
       controller: "ProjectController"
     })
-
+    .state('sprints', {
+      url:"/project/:projectId/sprints",
+      templateUrl:"views/sprint.html",
+      controller: "SprintController"
+    })
   $urlRouterProvider.otherwise("/404");
 });
