@@ -1,5 +1,6 @@
-<div id="projects_wrapper">
+<div id="projects_wrapper" ng-controller="ProjectController">
   <div class="container-fluid">
+<<<<<<< HEAD
     <div class="row">
       <div class="container">
       <header class="codrops-header">
@@ -29,27 +30,6 @@
         </form><!-- /simform -->      
       </section>
     </div><!-- /container -->
-    <script>
-      var theForm = document.getElementById( 'theForm' );
-
-      new stepsForm( theForm, {
-        onSubmit : function( form ) {
-          // hide form
-          classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
-
-          /*
-          form.submit()
-          or
-          AJAX request (maybe show loading indicator while we don't have an answer..)
-          */
-
-          // let's just simulate something...
-          var messageEl = theForm.querySelector( '.final-message' );
-          messageEl.innerHTML = 'Bravo, c\' est un superbe nom';
-          classie.addClass( messageEl, 'show' );
-        }
-      } );
-    </script>
     </div>
   </div>
 </div>

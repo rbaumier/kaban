@@ -8,5 +8,6 @@ app.controller('ProjectController', function($scope, $http){
   }).then(function(response){
     console.log(response);
     $scope.loadingProjects = false;
+    $scope.projects = response.data;
   })
  })

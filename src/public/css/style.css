@@ -1,0 +1,42 @@
+html, body {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8yOS8xMiKqq3kAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAABHklEQVRIib2Vyw6EIAxFW5idr///Qx9sfG3pLEyJ3tAwi5EmBqRo7vHawiEEERHS6x7MTMxMVv6+z3tPMUYSkfTM/R0fEaG2bbMv+Gc4nZzn+dN4HAcREa3r+hi3bcuu68jLskhVIlW073tWaYlQ9+F9IpqmSfq+fwskhdO/AwmUTJXrOuaRQNeRkOd5lq7rXmS5InmERKoER/QMvUAPlZDHcZRhGN4CSeGY+aHMqgcks5RrHv/eeh455x5KrMq2yHQdibDO6ncG/KZWL7M8xDyS1/MIO0NJqdULLS81X6/X6aR0nqBSJcPeZnlZrzN477NKURn2Nus8sjzmEII0TfMiyxUuxphVWjpJkbx0btUnshRihVv70Bv8ItXq6Asoi/ZiCbU6YgAAAABJRU5ErkJggg==);
+	font-family: Lato, sans-serif;
+}
+/******** Reset bootstrap *************/
+@media (min-width: 768px) {
+.navbar {
+    border-radius: 0px;
+}
+.navbar-default {
+    background-color: #3A568D;
+    border-color: transparent;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+    color: #ffffff;
+    background-color: #1E345F;
+}
+/******** END Reset bootstrap *************/
+
+.project_wrapper {
+	position: relative;
+	background-color: #3A568D;
+	padding: 20px;
+	border-radius: 5px;
+	color: #fff;
+	height: 100px;
+	margin-bottom: 20px;
+}
+.project_title {
+	font-size: 2em;
+	text-transform: uppercase;
+}
+.project_date_created {
+	font-weight: 300;
+	font-size: .8em;
+	color: #99ADD6;
+	position: absolute;
+	left: 0;
+	bottom: 0px;
+	padding-left: 20px;
+	padding-bottom: 10px;
+}
