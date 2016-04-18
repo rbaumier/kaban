@@ -1,4 +1,4 @@
-var app = angular.module('kaban', ['ui.router'])
+var app = angular.module('kaban', ['ui.router', 'ui.bootstrap'])
 
 app.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
   //

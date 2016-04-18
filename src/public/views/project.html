@@ -1,16 +1,55 @@
 <div id="projects_wrapper">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-6 col-md-3">
-        <div class="project_wrapper">
-          <div class="project_title">
-            <h3>My first project</h3>
-          </div>
-          <div class="project_sub_details">
-            By: <span class="project_creator">Yann B.</span> - <span class="project_date_created">12/12/2016</span>
-          </div>
-        </div>        
-      </div>
+      <div class="container">
+      <header class="codrops-header">
+        <h1>Créer un projet <span>Donnez lui un petit nom :)</span></h1>  
+      </header>
+      <section>
+        <form id="theForm" class="simform" autocomplete="off">
+          <div class="simform-inner">
+            <ol class="questions">
+              <li>
+                <span><label for="q1">Nom du projet</label></span>
+                <input id="q1" name="q1" type="text"/>
+              </li>
+            </ol><!-- /questions -->
+            <button class="submit" type="submit">Send answers</button>
+            <div class="controls">
+              <button class="next"></button>
+              <div class="progress"></div>
+              <span class="number">
+                <span class="number-current"></span>
+                <span class="number-total"></span>
+              </span>
+              <span class="error-message"></span>
+            </div><!-- / controls -->
+          </div><!-- /simform-inner -->
+          <span class="final-message"></span>
+        </form><!-- /simform -->      
+      </section>
+    </div><!-- /container -->
+    <script>
+      var theForm = document.getElementById( 'theForm' );
+
+      new stepsForm( theForm, {
+        onSubmit : function( form ) {
+          // hide form
+          classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+
+          /*
+          form.submit()
+          or
+          AJAX request (maybe show loading indicator while we don't have an answer..)
+          */
+
+          // let's just simulate something...
+          var messageEl = theForm.querySelector( '.final-message' );
+          messageEl.innerHTML = 'Bravo, c\' est un superbe nom';
+          classie.addClass( messageEl, 'show' );
+        }
+      } );
+    </script>
     </div>
   </div>
 </div>
