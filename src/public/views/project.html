@@ -2,14 +2,16 @@
   <div class="container-fluid">
     <div ng-repeat="project in projects">
       <div class="col-sm-6 col-md-3">
-        <div class="project_wrapper">
-          <div class="project_title">
-            {{ project.name }}
+        <a href="#/project/{{ project.id }}/sprints">
+          <div class="project_wrapper">
+            <div class="project_title">
+              {{ project.name }}
+            </div>
+            <div class="project_date_created">
+              Created on : {{ project.createdAt }}
+            </div>
           </div>
-          <div class="project_date_created">
-            Created on : {{ project.createdAt }}
-          </div>
-        </div>        
+        </a>
       </div>
     </div>
   </div>
