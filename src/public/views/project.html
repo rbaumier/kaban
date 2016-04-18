@@ -1,34 +1,28 @@
 <div id="projects_wrapper" ng-controller="ProjectController">
   <div class="container-fluid">
-    <div class="row">
-      <div class="container">
-      <header class="codrops-header">
-        <h1>Créer un projet <span>Donnez lui un petit nom :)</span></h1>
-      </header>
-      <section>
-        <form id="theForm" class="simform" autocomplete="off">
-          <div class="simform-inner">
-            <ol class="questions">
-              <li>
-                <span><label for="q1">Nom du projet</label></span>
-                <input id="q1" name="q1" type="text"/>
-              </li>
-            </ol><!-- /questions -->
-            <button class="submit" type="submit">Send answers</button>
-            <div class="controls">
-              <button class="next"></button>
-              <div class="progress"></div>
-              <span class="number">
-                <span class="number-current"></span>
-                <span class="number-total"></span>
-              </span>
-              <span class="error-message"></span>
-            </div><!-- / controls -->
-          </div><!-- /simform-inner -->
-          <span class="final-message"></span>
-        </form><!-- /simform -->
-      </section>
-    </div><!-- /container -->
+    <div class="col-sm-6 col-md-3">
+      <div class="project_wrapper">
+        <div class="project_title">
+          Add a new project
+        </div>
+      </div>
+      <div class="project_date_created">
+
+      </div>
+    </div>
+    <div ng-repeat="project in projects">
+      <div class="col-sm-6 col-md-3">
+        <a href="#/project/{{ project.id }}/sprints">
+          <div class="project_wrapper">
+            <div class="project_title">
+              {{ project.name }}
+            </div>
+            <div class="project_date_created">
+              Created on : {{ project.createdAt | date:"MM/dd/yyyy" }}
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </div>
