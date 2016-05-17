@@ -7,6 +7,12 @@ a:hover  {
 	text-decoration: none;
 	color: #FFEB3B !important;
 }
+.center {
+	text-align: center;
+}
+.col-center {
+	margin: 0 auto;
+}
 /******** Reset bootstrap *************/
 @media (min-width: 768px) {
 .navbar {
@@ -61,4 +67,16 @@ a.project_wrapper:hover  {
 	bottom: 0px;
 	padding-left: 20px;
 	padding-bottom: 10px;
+}
+#dod-wrapper {
+	background-color: #FFFDA5;
+	box-shadow: 0 10px 6px -6px #777;
+	position: relative;
+}
+#dod-wrapper .pin-down {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 40px;
+	height: 40px;
 }
