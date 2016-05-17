@@ -18,7 +18,7 @@ var story = {
     type: Sequelize.INTEGER
   },
   zone: {
-    type: Sequelize.STRING
+    type: Sequelize.ENUM('backlog', 'sprint planning')
   }
 };
 
