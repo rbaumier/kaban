@@ -23,12 +23,29 @@ app.controller('SprintController', function($scope, $http, $stateParams) {
     });
   }
 
-  function close(sprintId){
+  $scope.close = function(sprintId){
+    console.log('sprintId : ', sprintId);
     $http({
       url: "http://localhost:8080/projects/" + $stateParams.projectId + "/sprints/" + sprintId + "/close",
-      method: "GET"
+      method: "POST",
+      data: {
+        "status": "closed"
+      }
     }).then(function(response) {
-      window.location = "http://localhost:8080/projects/" + $stateParams.projectId + "/sprints";
+      refresh();
+    })
+  }
+
+  $scope.open = function(sprintId){
+    console.log('sprintId : ', sprintId);
+    $http({
+      url: "http://localhost:8080/projects/" + $stateParams.projectId + "/sprints/" + sprintId + "/close",
+      method: "POST",
+      data: {
+        "status": "open"
+      }
+    }).then(function(response) {
+      refresh();
     })
   }
 

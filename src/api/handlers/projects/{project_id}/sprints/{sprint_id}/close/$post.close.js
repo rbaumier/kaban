@@ -2,11 +2,14 @@
 
 module.exports = (models) => {
   return function $post(request, reply) {
-    models.user
+    models.sprint
       .findById(request.params.sprint_id)
       .then(project => {
-        project.updateAttributes(request.payload.status)
+        project.updateAttributes(request.payload)
           .then(project => reply(project));
-      }).catch(err => reply(Boom.wrap(err)));
+      }).catch(err => {
+        console.log('err : ', err);
+        reply(Boom.wrap(err));
+      });
   }
 };
