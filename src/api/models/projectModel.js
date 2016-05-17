@@ -10,7 +10,7 @@ var project = {
     type: Sequelize.STRING
   },
   DoD: {
-    type: Sequelize.STRING
+    type: Sequelize.ARRAY
   }
 }
 

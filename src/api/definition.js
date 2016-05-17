@@ -65,6 +65,23 @@ module.exports = function(packageJson) {
             required: true,
             type: 'integer'
           }]
+        }),
+        put: def({
+          summary: 'edit a project',
+          parameters: [{
+            name: 'project_id',
+            'in': 'path',
+            description: 'project id',
+            required: true,
+            type: 'integer'
+          }, {
+            'in': 'body',
+            name: 'body',
+            required: true,
+            schema: {
+              $ref: '#/definitions/project'
+            }
+          }]
         })
       },
 

@@ -6,7 +6,13 @@ module.exports = {
   "properties": {
     "name": {
       "type": "string"
+    },
+    "DoD": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   },
-  "required": ["name"]
+  "required": ["name", "DoD"]
 };
