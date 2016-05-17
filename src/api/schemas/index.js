@@ -3,5 +3,6 @@
 module.exports = {
   project: require('./project'),
   sprint: require('./sprint'),
-  story: require('./story')
+  story: require('./story'),
+  task: require('./task'),
 };
