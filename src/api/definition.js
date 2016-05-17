@@ -65,6 +65,17 @@ module.exports = function(packageJson) {
             required: true,
             type: 'integer'
           }]
+        }),
+
+        put: def({
+          summary: 'update a project',
+          parameters: [{
+            name: 'project_id',
+            'in': 'path',
+            description: 'project id',
+            required: true,
+            type: 'integer'
+          }]
         })
       },
 
