@@ -8,7 +8,10 @@ module.exports = {
       "type": "string"
     },
     "DoD": {
-      "type": "string"
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   },
   "required": ["name", "DoD"]
