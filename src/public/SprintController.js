@@ -16,6 +16,7 @@ app.controller('SprintController', function($scope, $http, $stateParams) {
       $scope.project = response.data;
       $scope.project.DoD = response.data.DoD || [];
       $scope.project.DoD.push("Add an item in DoD");
+      $scope.project.DoD.push("Add an item in DoD");
     });
   }
     $scope.editorEnabled = false;
@@ -23,10 +24,19 @@ app.controller('SprintController', function($scope, $http, $stateParams) {
     $scope.disableEditor = function(index) {
       $scope.editorEnabled[index] = false;
     };
+
+    $scope.deleteDoD = function(index) {
+      $scope.project.DoD.splice(index,1);
+      $http({
+        url: "http://localhost:8080/projects/" + $stateParams.projectId,
+        method: "PUT",
+        data: $scope.project
+      }).then(function(response) {
+        $scope.refresh();
+      });
+    };
     
     $scope.save = function(index, attr) {
-      console.log(attr);
-      console.log(index);
       $scope.project.DoD[index] = attr;
       $scope.disableEditor();
       $http({

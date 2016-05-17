@@ -5,7 +5,7 @@ html, body {
 a:hover  {
 	cursor: pointer;
 	text-decoration: none;
-	color: #FFEB3B !important;
+	color: #FFEB3B;
 }
 .center {
 	text-align: center;
@@ -82,4 +82,10 @@ a.project_wrapper:hover  {
 }
 #dod-wrapper .dod {
 	padding: 5px 10px;
+}
+#dod-wrapper .delete-dod {
+	color: #FF0035;
+}
+#dod-wrapper a.delete-dod:hover {
+	color: #FF001D;
 }

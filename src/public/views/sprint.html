@@ -51,10 +51,11 @@
       <img src="../img/pin.png" width="40" alt="">
     </div>
     <h2 class="center">DOD</h2>
-    <div class="dod" ng-repeat="attr in project.DoD" ng-init="editorEnabled=[]">
+    <div class="dod" ng-repeat="attr in project.DoD track by $index" ng-init="editorEnabled=[]">
       <div ng-hide="editorEnabled[$index]">
         {{attr}} - 
-        <a ng-click="editorEnabled[$index]=true">Edit title</a>
+        <a ng-click="editorEnabled[$index]=true">Edit</a>
+        <a class="pull-right delete-dod" ng-click="deleteDoD($index)" ng-show="$index != project.DoD.length - 1">x</a>
       </div>
       <div ng-show="editorEnabled[$index]">
         <input ng-model="attr" ng-show="editorEnabled[$index]">
