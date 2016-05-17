@@ -1,5 +1,6 @@
-app.controller('StoriesController', function($scope, $http, $stateParams) {
+'use strict';
 
+app.controller('StoriesController', function($scope, $http, $stateParams) {
   var url = "http://localhost:8080/projects/" + $stateParams.projectId + "/sprints/" + $stateParams.sprintId + "/stories"
 
   function refresh() {
@@ -30,4 +31,5 @@ app.controller('StoriesController', function($scope, $http, $stateParams) {
     });
   }
 
-})
+  refresh();
+});

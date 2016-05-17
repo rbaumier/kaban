@@ -8,7 +8,7 @@ var connection = new sequelize('bkouxpkcja27aom', 'uq86nc6h0f358etqfgg0', 'lj1NK
   port: 5432
 });
 
-var modelsName = ['project', 'sprint', 'story'];
+var modelsName = ['project', 'sprint', 'story', 'task'];
 
 const models = modelsName.reduce(function(models, modelName) {
   var model = require('./' + modelName + 'Model');
@@ -18,6 +18,7 @@ const models = modelsName.reduce(function(models, modelName) {
 
 models.project.hasMany(models.sprint);
 models.sprint.hasMany(models.story);
+models.story.hasMany(models.task);
 
 connection.sync();
 

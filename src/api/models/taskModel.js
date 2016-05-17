@@ -2,7 +2,7 @@
 
 var Sequelize = require('sequelize');
 
-var story = {
+var task = {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -11,15 +11,9 @@ var story = {
   name: {
     type: Sequelize.STRING
   },
-  effort_technique: {
-    type: Sequelize.INTEGER
-  },
-  valeur_metier: {
-    type: Sequelize.INTEGER
-  },
   zone: {
-    type: Sequelize.STRING
+    type: Sequelize.ENUM('TODO', 'DOING', 'DONE')
   }
 };
 
-module.exports = story;
+module.exports = task;
