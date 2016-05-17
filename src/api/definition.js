@@ -65,6 +65,17 @@ module.exports = function(packageJson) {
             required: true,
             type: 'integer'
           }]
+        }),
+
+        put: def({
+          summary: 'update a project',
+          parameters: [{
+            name: 'project_id',
+            'in': 'path',
+            description: 'project id',
+            required: true,
+            type: 'integer'
+          }]
         })
       },
 
@@ -232,6 +243,60 @@ module.exports = function(packageJson) {
       '/projects/{project_id}/sprints/{sprint_id}/stories/{story_id}/effort_technique': {
         post: def({
           summary: 'create a new story',
+          parameters: [{
+            name: 'project_id',
+            'in': 'path',
+            description: 'project id',
+            required: true,
+            type: 'integer'
+          }, {
+            name: 'sprint_id',
+            'in': 'path',
+            description: 'sprint id',
+            required: true,
+            type: 'integer'
+          }, {
+            name: 'story_id',
+            'in': 'path',
+            description: 'story id',
+            required: true,
+            type: 'integer'
+          }]
+        })
+      },
+
+      '/projects/{project_id}/sprints/{sprint_id}/stories/{story_id}/tasks': {
+        post: def({
+          summary: 'create a new task',
+          parameters: [{
+            name: 'project_id',
+            'in': 'path',
+            description: 'project id',
+            required: true,
+            type: 'integer'
+          }, {
+            name: 'sprint_id',
+            'in': 'path',
+            description: 'sprint id',
+            required: true,
+            type: 'integer'
+          }, {
+            name: 'story_id',
+            'in': 'path',
+            description: 'story id',
+            required: true,
+            type: 'integer'
+          }, {
+            'in': 'body',
+            name: 'body',
+            required: true,
+            schema: {
+              $ref: '#/definitions/task'
+            }
+          }]
+        }),
+        get: def({
+          summary: 'find all tasks of a story',
           parameters: [{
             name: 'project_id',
             'in': 'path',
