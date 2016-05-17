@@ -2,9 +2,9 @@ app.controller('ProjectController', function($scope, $http) {
 
   $scope.loadingProjects = true;
 
-  $scope.showForm = function() {
+  $scope.showForm = function(flag) {
     console.log('test');
-    $scope.toggle = true;
+    $scope.toggle = flag;
   }
 
   function refresh() {
