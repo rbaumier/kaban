@@ -29,4 +29,5 @@ app.controller('StoriesController', function($scope, $http, $stateParams) {
       refresh();
     });
   }
+
 })

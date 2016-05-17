@@ -120,7 +120,7 @@ module.exports = function(packageJson) {
 
       '/projects/{project_id}/sprints/{sprint_id}/close': {
         post: def({
-          summary: 'create a new sprint',
+          summary: 'Close a sprint',
           parameters: [{
             name: 'project_id',
             'in': 'path',

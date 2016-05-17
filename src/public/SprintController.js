@@ -23,5 +23,14 @@ app.controller('SprintController', function($scope, $http, $stateParams) {
     });
   }
 
+  function close(sprintId){
+    $http({
+      url: "http://localhost:8080/projects/" + $stateParams.projectId + "/sprints/" + sprintId + "/close",
+      method: "GET"
+    }).then(function(response) {
+      window.location = "http://localhost:8080/projects/" + $stateParams.projectId + "/sprints";
+    })
+  }
+
   refresh();
 })
