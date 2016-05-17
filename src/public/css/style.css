@@ -80,3 +80,6 @@ a.project_wrapper:hover  {
 	width: 40px;
 	height: 40px;
 }
+#dod-wrapper .dod {
+	padding: 5px 10px;
+}
