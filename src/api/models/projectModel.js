@@ -8,6 +8,9 @@ var project = {
   },
   name: {
     type: Sequelize.STRING
+  },
+  DoD: {
+    type: Sequelize.STRING
   }
 }
 
