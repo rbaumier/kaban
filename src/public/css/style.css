@@ -68,12 +68,17 @@ a.project_wrapper:hover  {
 	padding-left: 20px;
 	padding-bottom: 10px;
 }
-<<<<<<< HEAD
 
 .buttons {
 	margin-top: -20px;
 	width: 100%;
-=======
+}
+
+.little-buttons {
+	margin-top: -20px;
+	width: 49%;
+}
+
 #dod-wrapper {
 	background-color: #FFFDA5;
 	box-shadow: 0 10px 6px -6px #777;
@@ -94,5 +99,4 @@ a.project_wrapper:hover  {
 }
 #dod-wrapper a.delete-dod:hover {
 	color: #FF001D;
->>>>>>> 98c57250f03f7b821939bc88bd5eaa41e7da0619
 }

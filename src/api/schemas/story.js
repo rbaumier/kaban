@@ -14,7 +14,7 @@ module.exports = {
       type: "integer"
     },
     "zone": {
-      "enum": ["backlog", "sprint planning","product done"]
+      "enum": ["backlog", "sprint_planning","product_done"]
     }
   },
   "required": ["name", "effort_technique", "valeur_metier", "zone"]

@@ -1,50 +1,5 @@
 <div id="sprints_wrapper" ng-controller="SprintController">
   <div class="container-fluid">
-<<<<<<< HEAD
-    <div class="col-sm-6 col-md-3">
-      <div>
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label for="inputName" class="col-sm-2 control-label">Name</label>
-            <div class="col-sm-10">
-              <input class="form-control" placeholder="Name" ng-model="sprint.name">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <div class="error-create">{{errorCreate}}</div>
-              <button class="btn btn-primary" ng-click="create(sprint)">Create</button>
-              <button class="btn btn-default" ng-click="createFormHidden = true">Cancel</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div ng-repeat="sprint in sprints | orderBy:'id'">
-      <div class="col-sm-6 col-md-3">
-        <a href="#/project/{{ project }}/sprints/{{ sprint.id }}/stories">
-          <div class="sprint_wrapper">
-          	<ul class="list-group">
-	            <li class="list-group-item sprint_id">
-	              Sprint N° : {{ sprint.id }}
-	            </li>
-	            <li class="list-group-item sprint_name">
-	              Sprint name : {{ sprint.name }}
-	            </li>
-	            <li class="list-group-item sprint_status">
-	              Status : {{ sprint.status }}
-	            </li>
-	            <li class="list-group-item sprint_date_created">
-	              Created on : {{ sprint.createdAt | date:"MM/dd/yyyy" }}
-	            </li>
-            </ul>
-          </div>
-        </a>
-        <button ng-if="sprint.status=='open'" type="button" class="buttons btn btn-large" ng-click="close(sprint.id)">Close</button>
-        <button ng-if="sprint.status=='closed'" type="button" class="buttons btn btn-large" ng-click="open(sprint.id)">Re open</button>
-      </div>
-    </div>
-=======
 	<div class="col-md-10">
 	  <div class="col-sm-6 col-md-3">
 		<div>
@@ -110,7 +65,6 @@
 		</div>
 	  </div>
 	</div>
->>>>>>> 98c57250f03f7b821939bc88bd5eaa41e7da0619
   </div>
 </div>
 </div>

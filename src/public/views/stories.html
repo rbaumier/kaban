@@ -1,60 +1,129 @@
 <div id="stories_wrapper" ng-controller="StoriesController">
   <div class="container-fluid">
-    <div class="col-sm-6 col-md-3">
-      <div>
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label for="inputName" class="col-sm-2 control-label">Name</label>
-            <div class="col-sm-10">
-              <input class="form-control" placeholder="Name" ng-model="story.name">
+    <div class="container">
+      <div class="col-sm-6 col-md-3">
+        <div>
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="inputName" class="col-sm-2 control-label">Name</label>
+              <div class="col-sm-10">
+                <input class="form-control" placeholder="Name" ng-model="story.name">
+              </div>
+              <label for="inputName" class="col-sm-2 control-label">valeur métier</label>
+              <div class="col-sm-10">
+                <input class="form-control" placeholder="valeur metier" ng-model="story.valeur_metier">
+              </div>
+              <label for="inputName" class="col-sm-2 control-label">effort technique</label>
+              <div class="col-sm-10">
+                <input class="form-control" placeholder="effort technique" ng-model="story.effort_technique">
+              </div>
             </div>
-            <label for="inputName" class="col-sm-2 control-label">valeur métier</label>
-            <div class="col-sm-10">
-              <input class="form-control" placeholder="valeur metier" ng-model="story.valeur_metier">
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <div class="error-create">{{errorCreate}}</div>
+                <button class="btn btn-primary" ng-click="create(story)">Create</button>
+                <button class="btn btn-default" ng-click="createFormHidden = true">Cancel</button>
+              </div>
             </div>
-            <label for="inputName" class="col-sm-2 control-label">effort technique</label>
-            <div class="col-sm-10">
-              <input class="form-control" placeholder="effort technique" ng-model="story.effort_technique">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <div class="error-create">{{errorCreate}}</div>
-              <button class="btn btn-primary" ng-click="create(story)">Create</button>
-              <button class="btn btn-default" ng-click="createFormHidden = true">Cancel</button>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
-    <div ng-repeat="storie in stories">
-      <div class="col-sm-6 col-md-3">
-        <a href="#/project/{{ project }}/sprints/{{ sprints }}/stories/{{ storie.id }}/tasks">
-          <div class="storie_wrapper">
-          	<ul class="list-group">
-	            <li class="list-group-item storie_id">
-	              storie N° : {{ storie.id }}
-	            </li>
-	            <li class="list-group-item storie_name">
-	              storie name : {{ storie.name }}
-	            </li>
-	            <li class="list-group-item storie_created_at">
-	              Effort technique : {{ storie.effort_technique }}
-	            </li>
-	            <li class="list-group-item storie_name">
-	              Valeur metier : {{ storie.valeur_metier }}
-	            </li>
-	            <li class="list-group-item storie_name">
-	              zone : {{ storie.zone }}
-	            </li>
-	            <li class="list-group-item storie_date_created">
-	              Created on : {{ storie.createdAt | date:"MM/dd/yyyy" }}
-	            </li>
-            </ul>
-          </div>
-        </a>
-        <button ng-if="sprint.status=='open'" type="button" class="buttons btn btn-large" ng-click="toPlanning(storie.id)">Close</button>
-        <button ng-if="sprint.status=='closed'" type="button" class="buttons btn btn-large" ng-click="toBacklog(storie.id)">Re open</button>
+      <div class="container">
+      <h3>BACKLOG</h3>
+      <div ng-repeat="storie in stories | orderBy:'id'">
+        <div class="col-sm-6 col-md-3" ng-if="storie.zone=='backlog'">
+          <a href="#/project/{{ project }}/sprints/{{ sprints }}/stories/{{ storie.id }}/tasks">
+            <div class="storie_wrapper">
+            	<ul class="list-group">
+  	            <li class="list-group-item storie_id">
+  	              storie N° : {{ storie.id }}
+  	            </li>
+  	            <li class="list-group-item storie_name">
+  	              storie name : {{ storie.name }}
+  	            </li>
+  	            <li class="list-group-item storie_created_at">
+  	              Effort technique : {{ storie.effort_technique }}
+  	            </li>
+  	            <li class="list-group-item storie_name">
+  	              Valeur metier : {{ storie.valeur_metier }}
+  	            </li>
+  	            <li class="list-group-item storie_name">
+  	              zone : {{ storie.zone }}
+  	            </li>
+  	            <li class="list-group-item storie_date_created">
+  	              Created on : {{ storie.createdAt | date:"MM/dd/yyyy" }}
+  	            </li>
+              </ul>
+            </div>
+          </a>
+          <button type="button" class="buttons btn btn-large" ng-click="toPlanning(storie)">To Planning</button>
+        </div>
+      </div>
+      </div>
+      <div class="container">
+        <h3>SPRINT PLANNING</h3>
+        <div ng-repeat="storie in stories | orderBy:'id'">
+        <div ng-if="storie.zone=='sprint_planning'" class="col-sm-6 col-md-3">
+          <a href="#/project/{{ project }}/sprints/{{ sprints }}/stories/{{ storie.id }}/tasks">
+            <div class="storie_wrapper">
+              <ul class="list-group">
+                <li class="list-group-item storie_id">
+                  storie N° : {{ storie.id }}
+                </li>
+                <li class="list-group-item storie_name">
+                  storie name : {{ storie.name }}
+                </li>
+                <li class="list-group-item storie_created_at">
+                  Effort technique : {{ storie.effort_technique }}
+                </li>
+                <li class="list-group-item storie_name">
+                  Valeur metier : {{ storie.valeur_metier }}
+                </li>
+                <li class="list-group-item storie_name">
+                  zone : {{ storie.zone }}
+                </li>
+                <li class="list-group-item storie_date_created">
+                  Created on : {{ storie.createdAt | date:"MM/dd/yyyy" }}
+                </li>
+              </ul>
+            </div>
+          </a>
+          <button type="button" class="little-buttons btn btn-large" ng-click="toBacklog(storie)">To Backlog</button>
+          <button type="button" class="little-buttons btn btn-large" ng-click="toDone(storie)">To Done</button>
+        </div>
+      </div>
+      </div>
+      <div class="container">
+        <h3>PRODUCT DONE</h3>
+        <div ng-repeat="storie in stories | orderBy:'id'">
+        <div ng-if="storie.zone=='product_done'" class="col-sm-6 col-md-3">
+          <a href="#/project/{{ project }}/sprints/{{ sprints }}/stories/{{ storie.id }}/tasks">
+            <div class="storie_wrapper">
+              <ul class="list-group">
+                <li class="list-group-item storie_id">
+                  storie N° : {{ storie.id }}
+                </li>
+                <li class="list-group-item storie_name">
+                  storie name : {{ storie.name }}
+                </li>
+                <li class="list-group-item storie_created_at">
+                  Effort technique : {{ storie.effort_technique }}
+                </li>
+                <li class="list-group-item storie_name">
+                  Valeur metier : {{ storie.valeur_metier }}
+                </li>
+                <li class="list-group-item storie_name">
+                  zone : {{ storie.zone }}
+                </li>
+                <li class="list-group-item storie_date_created">
+                  Created on : {{ storie.createdAt | date:"MM/dd/yyyy" }}
+                </li>
+              </ul>
+            </div>
+          </a>
+          <button type="button" class="buttons btn btn-large" ng-click="toPlanning(storie)">To Planning</button>
+        </div>
       </div>
     </div>
   </div>

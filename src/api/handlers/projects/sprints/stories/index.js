@@ -26,6 +26,15 @@ module.exports = (models) => ({
           .then(story => reply(story));
     },
 
+    $put(request, reply){
+      models.story.findById(request.params.story_id)
+      .then(story => story.updateAttributes(request.payload)
+        .then(story => reply(story))
+      ).catch(err => {
+        reply(Boom.wrap(err))
+      });
+    },
+
     effort_technique: {
       $post(request, reply) {
         models.story
