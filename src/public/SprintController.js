@@ -31,19 +31,18 @@ app.controller('SprintController', function($scope, $http, $stateParams) {
         method: "PUT",
         data: _.omit($scope.project, "id", "createdAt", "updatedAt")
       }).then(function(response) {
-        $scope.refresh();
       });
     };
     
     $scope.save = function(index, attr) {
       $scope.project.DoD[index] = attr;
-      $scope.disableEditor();
+      $scope.disableEditor(index);
       $http({
       url: "http://localhost:8080/projects/" + $stateParams.projectId,
       method: "PUT",
       data: _.omit($scope.project, "id", "createdAt", "updatedAt")
       }).then(function(response) {
-        $scope.refresh();
+        refresh();
       });
     };
 
