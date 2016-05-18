@@ -1,29 +1,27 @@
 <div id="stories_wrapper" ng-controller="StoriesController">
   <div class="container-fluid">
     <div class="container">
-      <div class="col-sm-6 col-md-3">
+      <div class="col-md-6 col-md-offset-3">
         <div>
           <form class="form-horizontal">
             <div class="form-group">
-              <label for="inputName" class="col-sm-2 control-label">Name</label>
-              <div class="col-sm-10">
+              <label for="inputName" class="col-md-4 control-label">Name</label>
+              <div class="col-md-8">
                 <input class="form-control" placeholder="Name" ng-model="story.name">
               </div>
-              <label for="inputName" class="col-sm-2 control-label">valeur métier</label>
-              <div class="col-sm-10">
+              <label for="inputName" class="col-md-4 control-label">valeur métier</label>
+              <div class="col-md-8">
                 <input class="form-control" placeholder="valeur metier" ng-model="story.valeur_metier">
               </div>
-              <label for="inputName" class="col-sm-2 control-label">effort technique</label>
-              <div class="col-sm-10">
+              <label for="inputName" class="col-md-4 control-label">effort technique</label>
+              <div class="col-md-8">
                 <input class="form-control" placeholder="effort technique" ng-model="story.effort_technique">
               </div>
             </div>
             <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
                 <div class="error-create">{{errorCreate}}</div>
-                <button class="btn btn-primary" ng-click="create(story)">Create</button>
-                <button class="btn btn-default" ng-click="createFormHidden = true">Cancel</button>
-              </div>
+                <button class="btn btn-primary col-md-4 col-md-offset-1" ng-click="create(story)">Create</button>
+                <button class="btn btn-default col-md-4 col-md-offset-2" ng-click="createFormHidden = true">Cancel</button>
             </div>
           </form>
         </div>

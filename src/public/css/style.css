@@ -77,6 +77,13 @@ a.project_wrapper:hover  {
 	padding-bottom: 10px;
 }
 
+.form-horizontal{
+	background-color: #fff;
+  padding: 20px;
+  border: solid 1px #888;
+  border-radius: 5px;
+}
+
 .buttons {
 	margin-top: -20px;
 	width: 100%;
