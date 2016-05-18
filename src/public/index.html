@@ -30,10 +30,10 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" title="Emergency use only">Important</a></li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right">
+				<ul class="nav navbar-nav navbar-right" ng-controller="MainController">
 					<form class="navbar-form navbar-left" role="search">
 						<div class="form-group">
-						<input type="text" class="form-control" placeholder="Find your project">
+						<input type="text" my-enter="doSomething()" class="form-control" placeholder="Find your project">
 						</div>
 					</form>
 				</ul>
@@ -54,5 +54,6 @@
   <script type="text/javascript" src="SprintController.js"></script>
   <script type="text/javascript" src="StoriesController.js"></script>
   <script type="text/javascript" src="TaskController.js"></script>
+  <script type="text/javascript" src="MainDirective.js"></script>
 </body>
 </html>
