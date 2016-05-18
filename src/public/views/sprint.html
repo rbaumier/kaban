@@ -20,6 +20,13 @@
 		  </form>
 		</div>
 	  </div>
+
+    <div>
+      <p>Somme de mon Product Done</p>
+      <p>Effort Technique : {{ project.effort_technique }}</p>
+      <p>Valeur Métier : {{ project.valeur_metier }}</p>
+    </div>
+
 	  <div ng-repeat="sprint in sprints | orderBy:'id'">
 		<div class="col-sm-6 col-md-3">
 		  <a href="#/project/{{ project.id }}/sprints/{{ sprint.id }}/stories">
