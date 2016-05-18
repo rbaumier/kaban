@@ -20,6 +20,13 @@
 		  </form>
 		</div>
 	  </div>
+
+    <div>
+      <p>Somme de mon Product Done</p>
+      <p>Effort Technique : {{ project.effort_technique }}</p>
+      <p>Valeur Métier : {{ project.valeur_metier }}</p>
+    </div>
+
 	  <div ng-repeat="sprint in sprints | orderBy:'id'">
 		<div class="col-sm-6 col-md-3">
 		  <a href="#/project/{{ project.id }}/sprints/{{ sprint.id }}/stories">
@@ -40,8 +47,8 @@
 			 </ul>
 		   </div>
 		 </a>
-		 <button ng-if="sprint.status=='open'" type="button" class="btn btn-large" ng-click="close(sprint.id)">Close</button>
-		 <button ng-if="sprint.status=='closed'" type="button" class="btn btn-large" ng-click="open(sprint.id)">Re open</button>
+		 <button ng-if="sprint.status=='open'" type="button" class="buttons btn btn-large" ng-click="close(sprint.id)">Close</button>
+		 <button ng-if="sprint.status=='closed'" type="button" class="buttons btn btn-large" ng-click="open(sprint.id)">Re open</button>
 	   </div>
 	 </div>
    </div>
