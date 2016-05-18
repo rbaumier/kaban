@@ -21,7 +21,8 @@ app.controller('ProjectController', function($scope, $http) {
       url: "http://localhost:8080/projects",
       method: "POST",
       data: {
-        "name": project.name
+        "name": project.name,
+        "DoD": []
       }
     }).then(function(response) {
       refresh();

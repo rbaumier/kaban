@@ -68,7 +68,7 @@ module.exports = function(packageJson) {
 
     paths: {
       '/projects': {
-        delete: def({
+        post: def({
           summary: 'create a new project',
           parameters: [{
             'in': 'body',

@@ -2,10 +2,10 @@
 
 var sequelize = require('sequelize');
 
-var connection = new sequelize('bkouxpkcja27aom', 'uq86nc6h0f358etqfgg0', 'lj1NKtW5GdL3un97wWdH', {
-  host: 'bkouxpkcja27aom-postgresql.services.clever-cloud.com',
+var connection = new sequelize('blkoosbyy', 'upijy7sr3avpt9lb9s1j', 'rOIAFvzSd6a2OiqXRA8', {
+  host: 'blkoosbyy-postgresql.services.clever-cloud.com',
   dialect: 'postgres',
-  port: 5432
+  port: 1250
 });
 
 var modelsName = ['project', 'sprint', 'story', 'task'];
