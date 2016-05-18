@@ -27,10 +27,10 @@
         </div>
       </div>
     </div>
-      <div class="container">
-      <h3>BACKLOG</h3>
+      <div class="col-md-4">
+      <h3 class="center">BACKLOG</h3>
       <div ng-repeat="storie in stories | orderBy:'id'">
-        <div class="col-sm-6 col-md-3" ng-if="storie.zone=='backlog'">
+        <div class="col-md-8 col-md-offset-2" ng-if="storie.zone=='backlog'">
           <a href="#/project/{{ project }}/sprints/{{ sprints }}/stories/{{ storie.id }}/tasks">
             <div class="storie_wrapper">
             	<ul class="list-group">
@@ -59,10 +59,10 @@
         </div>
       </div>
       </div>
-      <div class="container">
-        <h3>SPRINT PLANNING</h3>
+      <div class="col-md-4">
+        <h3 class="center">SPRINT PLANNING</h3>
         <div ng-repeat="storie in stories | orderBy:'id'">
-        <div ng-if="storie.zone=='sprint_planning'" class="col-sm-6 col-md-3">
+        <div ng-if="storie.zone=='sprint_planning'" class="col-md-8 col-md-offset-2">
           <a href="#/project/{{ project }}/sprints/{{ sprints }}/stories/{{ storie.id }}/tasks">
             <div class="storie_wrapper">
               <ul class="list-group">
@@ -92,10 +92,10 @@
         </div>
       </div>
       </div>
-      <div class="container">
-        <h3>PRODUCT DONE</h3>
+      <div class="col-md-4">
+        <h3 class="center">PRODUCT DONE</h3>
         <div ng-repeat="storie in stories | orderBy:'id'">
-        <div ng-if="storie.zone=='product_done'" class="col-sm-6 col-md-3">
+        <div ng-if="storie.zone=='product_done'" class="col-md-8 col-md-offset-2">
           <a href="#/project/{{ project }}/sprints/{{ sprints }}/stories/{{ storie.id }}/tasks">
             <div class="storie_wrapper">
               <ul class="list-group">

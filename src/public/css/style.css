@@ -66,6 +66,12 @@ a.project_wrapper:hover  {
 	 overflow: hidden;
 	 text-overflow: ellipsis;
 }
+.list-group{
+	margin-top: 30px;
+}
+.list-group-item{
+	padding: 6px 15px;
+}
 .project_date_created {
 	font-weight: 300;
 	font-size: .8em;
@@ -86,12 +92,9 @@ a.project_wrapper:hover  {
   border-radius: 5px;
 }
 
-.form-horizontal{
-	background-color: #fff;
-}
-
 .buttons {
-	margin-top: -20px;
+	margin-top: -25px;
+	padding: 5px 15px;
 	width: 100%;
 }
 
