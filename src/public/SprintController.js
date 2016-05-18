@@ -16,6 +16,7 @@ app.controller('SprintController', function($scope, $http, $stateParams) {
       $scope.project = response.data;
       $scope.project.DoD = response.data.DoD || [];
       $scope.project.DoD.push("Add an item in DoD");
+      console.log($scope.project.DoD);
     });
   }
     $scope.editorEnabled = false;
