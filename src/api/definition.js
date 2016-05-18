@@ -212,6 +212,35 @@ module.exports = function(packageJson) {
             required: true,
             type: 'integer'
           }]
+        }),
+        put: def({
+          summary: 'find a story',
+          parameters: [{
+            name: 'project_id',
+            'in': 'path',
+            description: 'project id',
+            required: true,
+            type: 'integer'
+          }, {
+            name: 'sprint_id',
+            'in': 'path',
+            description: 'sprint id',
+            required: true,
+            type: 'integer'
+          }, {
+            name: 'story_id',
+            'in': 'path',
+            description: 'story id',
+            required: true,
+            type: 'integer'
+          }, {
+            'in': 'body',
+            name: 'body',
+            required: true,
+            schema: {
+              $ref: '#/definitions/story'
+            }
+          }]
         })
       },
 

@@ -62,3 +62,8 @@ a.project_wrapper:hover  {
 	padding-left: 20px;
 	padding-bottom: 10px;
 }
+
+.buttons {
+	margin-top: -20px;
+	width: 100%;
+}

@@ -53,6 +53,8 @@
             </ul>
           </div>
         </a>
+        <button ng-if="sprint.status=='open'" type="button" class="buttons btn btn-large" ng-click="toPlanning(storie.id)">Close</button>
+        <button ng-if="sprint.status=='closed'" type="button" class="buttons btn btn-large" ng-click="toBacklog(storie.id)">Re open</button>
       </div>
     </div>
   </div>
