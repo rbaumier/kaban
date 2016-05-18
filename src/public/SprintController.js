@@ -9,7 +9,42 @@ app.controller('SprintController', function($scope, $http, $stateParams) {
       $scope.project = $stateParams.projectId;
       $scope.sprints = response.data;
     });
+    $http({
+      url: "http://localhost:8080/projects/" + $stateParams.projectId,
+      method: "GET"
+    }).then(function(response) {
+      $scope.project = response.data;
+      $scope.project.DoD = response.data.DoD || [];
+      $scope.project.DoD.push("Add an item in DoD");
+    });
   }
+    $scope.editorEnabled = false;
+    
+    $scope.disableEditor = function(index) {
+      $scope.editorEnabled[index] = false;
+    };
+
+    $scope.deleteDoD = function(index) {
+      $scope.project.DoD.splice(index,1);
+      $http({
+        url: "http://localhost:8080/projects/" + $stateParams.projectId,
+        method: "PUT",
+        data: _.omit($scope.project, "id", "createdAt", "updatedAt")
+      }).then(function(response) {
+      });
+    };
+    
+    $scope.save = function(index, attr) {
+      $scope.project.DoD[index] = attr;
+      $scope.disableEditor(index);
+      $http({
+      url: "http://localhost:8080/projects/" + $stateParams.projectId,
+      method: "PUT",
+      data: _.omit($scope.project, "id", "createdAt", "updatedAt")
+      }).then(function(response) {
+        refresh();
+      });
+    };
 
   $scope.create = function(sprint) {
     $http({

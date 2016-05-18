@@ -1,47 +1,70 @@
 <div id="sprints_wrapper" ng-controller="SprintController">
   <div class="container-fluid">
-    <div class="col-sm-6 col-md-3">
-      <div>
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label for="inputName" class="col-sm-2 control-label">Name</label>
-            <div class="col-sm-10">
-              <input class="form-control" placeholder="Name" ng-model="sprint.name">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <div class="error-create">{{errorCreate}}</div>
-              <button class="btn btn-primary" ng-click="create(sprint)">Create</button>
-              <button class="btn btn-default" ng-click="createFormHidden = true">Cancel</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div ng-repeat="sprint in sprints | orderBy:'id'">
-      <div class="col-sm-6 col-md-3">
-        <a href="#/project/{{ project }}/sprints/{{ sprint.id }}/stories">
-          <div class="sprint_wrapper">
-          	<ul class="list-group">
-	            <li class="list-group-item sprint_id">
-	              Sprint N° : {{ sprint.id }}
-	            </li>
-	            <li class="list-group-item sprint_name">
-	              Sprint name : {{ sprint.name }}
-	            </li>
-	            <li class="list-group-item sprint_status">
-	              Status : {{ sprint.status }}
-	            </li>
-	            <li class="list-group-item sprint_date_created">
-	              Created on : {{ sprint.createdAt | date:"MM/dd/yyyy" }}
-	            </li>
-            </ul>
-          </div>
-        </a>
-        <button ng-if="sprint.status=='open'" type="button" class="btn btn-large" ng-click="close(sprint.id)">Close</button>
-        <button ng-if="sprint.status=='closed'" type="button" class="btn btn-large" ng-click="open(sprint.id)">Re open</button>
-      </div>
-    </div>
+	<div class="col-md-10">
+	  <div class="col-sm-6 col-md-3">
+		<div>
+		  <form class="form-horizontal">
+			<div class="form-group">
+			  <label for="inputName" class="col-sm-2 control-label">Name</label>
+			  <div class="col-sm-10">
+				<input class="form-control" placeholder="Name" ng-model="sprint.name">
+			  </div>
+			</div>
+			<div class="form-group">
+			  <div class="col-sm-offset-2 col-sm-10">
+				<div class="error-create">{{errorCreate}}</div>
+				<button class="btn btn-primary" ng-click="create(sprint)">Create</button>
+				<button class="btn btn-default" ng-click="createFormHidden = true">Cancel</button>
+			  </div>
+			</div>
+		  </form>
+		</div>
+	  </div>
+	  <div ng-repeat="sprint in sprints | orderBy:'id'">
+		<div class="col-sm-6 col-md-3">
+		  <a href="#/project/{{ project }}/sprints/{{ sprint.id }}/stories">
+			<div class="sprint_wrapper">
+				<ul class="list-group">
+			   <li class="list-group-item sprint_id">
+				 Sprint N° : {{ sprint.id }}
+			   </li>
+			   <li class="list-group-item sprint_name">
+				 Sprint name : {{ sprint.name }}
+			   </li>
+			   <li class="list-group-item sprint_status">
+				 Status : {{ sprint.status }}
+			   </li>
+			   <li class="list-group-item sprint_date_created">
+				 Created on : {{ sprint.createdAt | date:"MM/dd/yyyy" }}
+			   </li>
+			 </ul>
+		   </div>
+		 </a>
+		 <button ng-if="sprint.status=='open'" type="button" class="btn btn-large" ng-click="close(sprint.id)">Close</button>
+		 <button ng-if="sprint.status=='closed'" type="button" class="btn btn-large" ng-click="open(sprint.id)">Re open</button>
+	   </div>
+	 </div>
+   </div>
+   <div id="dod-wrapper" class="col-sm-2">
+	<div class="pin-down">
+	  <img src="../img/pin.png" width="40" alt="">
+	</div>
+	<h2 class="center">DOD</h2>
+	<div class="dod" ng-repeat="attr in project.DoD track by $index" ng-init="editorEnabled=[]">
+	  <div ng-hide="editorEnabled[$index]">
+		{{attr}} - 
+		<a ng-click="editorEnabled[$index]=true">Edit</a>
+		<a class="pull-right delete-dod" ng-click="deleteDoD($index)" ng-show="$index != project.DoD.length - 1">x</a>
+	  </div>
+	  <div ng-show="editorEnabled[$index]">
+		<input ng-model="attr" ng-show="editorEnabled[$index]">
+		<div>
+		  <a ng-click="save($index, attr)">Save</a>
+		  or
+		  <a ng-click="editorEnabled[$index]=false">cancel</a>.          
+		</div>
+	  </div>
+	</div>
   </div>
+</div>
 </div>

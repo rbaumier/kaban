@@ -66,7 +66,6 @@ module.exports = function(packageJson) {
             type: 'integer'
           }]
         }),
-
         put: def({
           summary: 'update a project',
           parameters: [{
@@ -75,6 +74,13 @@ module.exports = function(packageJson) {
             description: 'project id',
             required: true,
             type: 'integer'
+          }, {
+            'in': 'body',
+            name: 'body',
+            required: true,
+            schema: {
+              $ref: '#/definitions/project'
+            }
           }]
         })
       },
