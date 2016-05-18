@@ -25,11 +25,11 @@ module.exports = (models) => ({
       models.task
         .findById(request.params.task_id)
         .then(task => {
-          task.updateAttributes(request.payload.zone)
+          task.updateAttributes(request.payload)
             .then(task => reply(task));
         }).catch(err => reply(Boom.wrap(err)));
     },
-    
+
     $delete(request, reply) {}
   }
 });
