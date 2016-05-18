@@ -28,9 +28,9 @@ app.controller('TaskController', function($scope, $http, $stateParams) {
 
   $scope.update = function(task) {
     $http({
-      url: url,
+      url: url + '/' + task.id,
       method: "PUT",
-      data: task
+      data: _.omit(task, "id", "createdAt", "updatedAt", "storyId")
     }).then(function(response) {
       refresh();
     });
