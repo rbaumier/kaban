@@ -25,7 +25,7 @@ module.exports = (models) => ({
         var sprintsIds = _.filter(sprints, sprint => sprint.projectId === request.params.project_id).map(sprint => sprint.id);
         var stories = _.filter(stories, story => _.includes(sprintsIds, story.sprintId));
         var sums = _.reduce(stories, function(m, story) {
-          if(m.zone === 'product done') {
+          if(story.zone === 'product_done' || story.zone === 'product done') {
             m.effort_technique += story.effort_technique;
             m.valeur_metier += story.valeur_metier;
           }
