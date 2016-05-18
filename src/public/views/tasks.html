@@ -30,6 +30,13 @@
 	            <li class="list-group-item storie_date_created">
 	              Created at : {{ task.createdAt | date:"MM/dd/yyyy" }}
 	            </li>
+              <li class="list-group-item storie_zone">
+                <select ng-init="task.zone" ng-model="task.zone" ng-change="update(task)">
+                  <option>DOING</option>
+                  <option>DONE</option>
+                  <option>TODO</option>
+                </select>
+              </li>
             </ul>
           </div>
 <!--         </a>
