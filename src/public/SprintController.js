@@ -16,7 +16,6 @@ app.controller('SprintController', function($scope, $http, $stateParams) {
       $scope.project = response.data;
       $scope.project.DoD = response.data.DoD || [];
       $scope.project.DoD.push("Add an item in DoD");
-      $scope.project.DoD.push("Add an item in DoD");
     });
   }
     $scope.editorEnabled = false;
@@ -30,7 +29,7 @@ app.controller('SprintController', function($scope, $http, $stateParams) {
       $http({
         url: "http://localhost:8080/projects/" + $stateParams.projectId,
         method: "PUT",
-        data: $scope.project
+        data: _.omit($scope.project, "id", "createdAt", "updatedAt")
       }).then(function(response) {
         $scope.refresh();
       });
@@ -42,7 +41,7 @@ app.controller('SprintController', function($scope, $http, $stateParams) {
       $http({
       url: "http://localhost:8080/projects/" + $stateParams.projectId,
       method: "PUT",
-      data: $scope.project
+      data: _.omit($scope.project, "id", "createdAt", "updatedAt")
       }).then(function(response) {
         $scope.refresh();
       });

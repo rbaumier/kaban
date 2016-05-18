@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  "title": "sprint",
+  "title": "story",
   "type": "object",
   "properties": {
     "name": {
@@ -14,7 +14,7 @@ module.exports = {
       type: "integer"
     },
     "zone": {
-      "type": "string"
+      "enum": ["backlog", "sprint planning"]
     }
   },
   "required": ["name", "effort_technique", "valeur_metier", "zone"]

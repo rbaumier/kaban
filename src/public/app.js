@@ -1,9 +1,6 @@
 var app = angular.module('kaban', ['ui.router', 'ui.bootstrap'])
 
 app.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
-  //
-  //
-
   $stateProvider
     .state('home', {
       url: "",
@@ -29,5 +26,11 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
       templateUrl:"views/stories.html",
       controller: "StoriesController"
     })
+    .state('task', {
+      url:"/project/:projectId/sprints/:sprintId/stories/:storyId/tasks",
+      templateUrl:"views/tasks.html",
+      controller: "TaskController"
+    })
+
   $urlRouterProvider.otherwise("/404");
 });
