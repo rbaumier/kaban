@@ -19,6 +19,35 @@ module.exports = function(packageJson) {
     }, options);
   }
 
+  function takeParams() {
+    var params = _.toArray(arguments);
+    return [{
+      name: 'project_id',
+      'in': 'path',
+      description: 'project id',
+      required: true,
+      type: 'integer'
+    }, {
+      name: 'sprint_id',
+      'in': 'path',
+      description: 'sprint id',
+      required: true,
+      type: 'integer'
+    }, {
+      name: 'story_id',
+      'in': 'path',
+      description: 'story id',
+      required: true,
+      type: 'integer'
+    }, {
+      name: 'task_id',
+      'in': 'path',
+      description: 'task id',
+      required: true,
+      type: 'integer'
+    }].filter(param => _.includes(params, param.name));
+  };
+
   return {
     swagger: '2.0',
     schemes: [
@@ -39,7 +68,7 @@ module.exports = function(packageJson) {
 
     paths: {
       '/projects': {
-        post: def({
+        delete: def({
           summary: 'create a new project',
           parameters: [{
             'in': 'body',
@@ -58,20 +87,13 @@ module.exports = function(packageJson) {
       '/projects/{project_id}': {
         get: def({
           summary: 'find a project',
-          parameters: [{
-            name: 'project_id',
-            'in': 'path',
-            description: 'project id',
-            required: true,
-            type: 'integer'
-          }]
+          parameters: takeParams('project_id')
         }),
         put: def({
           summary: 'update a project',
-          parameters: [{
-            name: 'project_id',
-            'in': 'path',
-            description: 'project id',
+          parameters: takeParams('project_id').concat([{
+            'in': 'body',
+            name: 'body',
             required: true,
             type: 'integer'
           }, {
@@ -81,59 +103,34 @@ module.exports = function(packageJson) {
             schema: {
               $ref: '#/definitions/project'
             }
-          }]
+          }])
         })
       },
 
       '/projects/{project_id}/sprints': {
         post: def({
           summary: 'create a new sprint',
-          parameters: [{
-            name: 'project_id',
-            'in': 'path',
-            description: 'project id',
-            required: true,
-            type: 'integer'
-          }, {
+          parameters: takeParams('project_id').concat([{
             'in': 'body',
             name: 'body',
             required: true,
             schema: {
               $ref: '#/definitions/sprint'
             }
-          }]
+          }])
         }),
         get: def({
           summary: 'find all sprints',
-          parameters: [{
-            name: 'project_id',
-            'in': 'path',
-            description: 'project id',
-            required: true,
-            type: 'integer'
-          }]
+          parameters: takeParams('project_id')
         })
       },
 
       '/projects/{project_id}/sprints/{sprint_id}': {
         get: def({
           summary: 'find a sprint',
-          parameters: [{
-            name: 'project_id',
-            'in': 'path',
-            description: 'project id',
-            required: true,
-            type: 'integer'
-          }, {
-            name: 'sprint_id',
-            'in': 'path',
-            description: 'sprint id',
-            required: true,
-            type: 'integer'
-          }]
+          parameters: takeParams('project_id', 'sprint_id')
         })
       },
-
 
       '/projects/{project_id}/sprints/{sprint_id}/close': {
         post: def({
@@ -157,171 +154,72 @@ module.exports = function(packageJson) {
       '/projects/{project_id}/sprints/{sprint_id}/stories': {
         post: def({
           summary: 'create a new story',
-          parameters: [{
-            name: 'project_id',
-            'in': 'path',
-            description: 'project id',
-            required: true,
-            type: 'integer'
-          }, {
-            name: 'sprint_id',
-            'in': 'path',
-            description: 'sprint id',
-            required: true,
-            type: 'integer'
-          }, {
+          parameters: takeParams('project_id', 'sprint_id').concat([{
             'in': 'body',
             name: 'body',
             required: true,
             schema: {
               $ref: '#/definitions/story'
             }
-          }]
+          }])
         }),
         get: def({
           summary: 'find all stories of a sprint',
-          parameters: [{
-            name: 'project_id',
-            'in': 'path',
-            description: 'project id',
-            required: true,
-            type: 'integer'
-          }, {
-            name: 'sprint_id',
-            'in': 'path',
-            description: 'sprint id',
-            required: true,
-            type: 'integer'
-          }]
+          parameters: takeParams('project_id', 'sprint_id')
         })
       },
 
       '/projects/{project_id}/sprints/{sprint_id}/stories/{story_id}': {
         get: def({
           summary: 'find a story',
-          parameters: [{
-            name: 'project_id',
-            'in': 'path',
-            description: 'project id',
-            required: true,
-            type: 'integer'
-          }, {
-            name: 'sprint_id',
-            'in': 'path',
-            description: 'sprint id',
-            required: true,
-            type: 'integer'
-          }, {
-            name: 'story_id',
-            'in': 'path',
-            description: 'sprint id',
-            required: true,
-            type: 'integer'
-          }]
+          parameters: takeParams('project_id', 'sprint_id', 'story_id')
         })
       },
 
       '/projects/{project_id}/sprints/{sprint_id}/stories/{story_id}/valeur_metier': {
         post: def({
-          summary: 'create a new story',
-          parameters: [{
-            name: 'project_id',
-            'in': 'path',
-            description: 'project id',
-            required: true,
-            type: 'integer'
-          }, {
-            name: 'sprint_id',
-            'in': 'path',
-            description: 'sprint id',
-            required: true,
-            type: 'integer'
-          }, {
-            name: 'story_id',
-            'in': 'path',
-            description: 'story id',
-            required: true,
-            type: 'integer'
-          }]
+          summary: 'update valeur metier',
+          parameters: takeParams('project_id', 'sprint_id', 'story_id')
         })
       },
 
       '/projects/{project_id}/sprints/{sprint_id}/stories/{story_id}/effort_technique': {
         post: def({
-          summary: 'create a new story',
-          parameters: [{
-            name: 'project_id',
-            'in': 'path',
-            description: 'project id',
-            required: true,
-            type: 'integer'
-          }, {
-            name: 'sprint_id',
-            'in': 'path',
-            description: 'sprint id',
-            required: true,
-            type: 'integer'
-          }, {
-            name: 'story_id',
-            'in': 'path',
-            description: 'story id',
-            required: true,
-            type: 'integer'
-          }]
+          summary: 'update effort technique',
+          parameters: takeParams('project_id', 'sprint_id', 'story_id')
         })
       },
 
       '/projects/{project_id}/sprints/{sprint_id}/stories/{story_id}/tasks': {
         post: def({
           summary: 'create a new task',
-          parameters: [{
-            name: 'project_id',
-            'in': 'path',
-            description: 'project id',
-            required: true,
-            type: 'integer'
-          }, {
-            name: 'sprint_id',
-            'in': 'path',
-            description: 'sprint id',
-            required: true,
-            type: 'integer'
-          }, {
-            name: 'story_id',
-            'in': 'path',
-            description: 'story id',
-            required: true,
-            type: 'integer'
-          }, {
+          parameters: takeParams('project_id', 'sprint_id', 'story_id').concat([{
             'in': 'body',
             name: 'body',
             required: true,
             schema: {
               $ref: '#/definitions/task'
             }
-          }]
+          }])
         }),
+
         get: def({
           summary: 'find all tasks of a story',
-          parameters: [{
-            name: 'project_id',
-            'in': 'path',
-            description: 'project id',
+          parameters: takeParams('project_id', 'sprint_id', 'story_id')
+        })
+      },
+
+      '/projects/{project_id}/sprints/{sprint_id}/stories/{story_id}/tasks/{task_id}': {
+        put: def({
+          summary: 'update a task',
+          parameters: takeParams('project_id', 'sprint_id', 'story_id', 'task_id').concat([{
+            'in': 'body',
+            name: 'body',
             required: true,
-            type: 'integer'
-          }, {
-            name: 'sprint_id',
-            'in': 'path',
-            description: 'sprint id',
-            required: true,
-            type: 'integer'
-          }, {
-            name: 'story_id',
-            'in': 'path',
-            description: 'story id',
-            required: true,
-            type: 'integer'
-          }]
+            schema: {
+              $ref: '#/definitions/task'
+            }
+          }])
         })
       }
     }

@@ -26,5 +26,15 @@ app.controller('TaskController', function($scope, $http, $stateParams) {
     });
   }
 
+  $scope.update = function(task) {
+    $http({
+      url: url,
+      method: "PUT",
+      data: task
+    }).then(function(response) {
+      refresh();
+    });
+  }
+
   refresh();
 });
