@@ -13,7 +13,7 @@ app.controller('StoriesController', function($scope, $http, $stateParams) {
       $scope.project = $stateParams.projectId;
       $scope.sprints = $stateParams.sprintId;
       $scope.stories = response.data;
-    });
+    }).catch(err => console.log(err));
   }
 
   $scope.create = function(story) {
