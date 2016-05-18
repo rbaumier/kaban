@@ -46,7 +46,7 @@ div[ui-view] {
 	padding: 20px;
 	border-radius: 5px;
 	color: #fff;
-	height: 100px;
+	height: 150px;
 	margin-bottom: 20px;
 }
 a.project_wrapper:hover  {
@@ -57,6 +57,14 @@ a.project_wrapper:hover  {
 .project_title {
 	font-size: 2em;
 	text-transform: uppercase;
+	 height: calc(22px * 25px * 4); /* Fallback for non-webkit */
+	 margin: 0 auto;
+	 font-size: 22px;
+	 line-height: 25px;
+	 -webkit-line-clamp: 4;
+	 -webkit-box-orient: vertical;
+	 overflow: hidden;
+	 text-overflow: ellipsis;
 }
 .project_date_created {
 	font-weight: 300;
